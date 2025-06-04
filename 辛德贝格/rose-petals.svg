@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="300" height="400">
+    <defs>
+        <path id="petal" d="M0,0 C5,-5 10,-5 15,0 C20,5 20,10 15,15 C10,20 5,20 0,15 C-5,10 -5,5 0,0" fill="#FFB6C1" />
+        <path id="rose" d="M0,0 C10,-10 20,-10 30,0 C40,10 40,20 30,30 C20,40 10,40 0,30 C-10,20 -10,10 0,0" fill="#FF69B4" />
+    </defs>
+    
+    <!-- 玫瑰花和花瓣 -->
+    <g>
+        <use href="#rose" transform="translate(20,20)">
+            <animateTransform
+                attributeName="transform"
+                type="translate"
+                from="-30 -30"
+                to="120 150"
+                dur="6s"
+                repeatCount="indefinite"
+            />
+            <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0"
+                to="360"
+                dur="4s"
+                repeatCount="indefinite"
+                additive="sum"
+            />
+        </use>
+        
+        <use href="#petal" transform="translate(40,40)">
+            <animateTransform
+                attributeName="transform"
+                type="translate"
+                from="-20 -20"
+                to="100 130"
+                dur="4s"
+                repeatCount="indefinite"
+            />
+            <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0"
+                to="360"
+                dur="3s"
+                repeatCount="indefinite"
+                additive="sum"
+            />
+        </use>
+        
+        <use href="#petal" transform="translate(60,30)">
+            <animateTransform
+                attributeName="transform"
+                type="translate"
+                from="-10 -40"
+                to="90 140"
+                dur="5s"
+                repeatCount="indefinite"
+            />
+            <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0"
+                to="360"
+                dur="3.5s"
+                repeatCount="indefinite"
+                additive="sum"
+            />
+        </use>
+        
+        <use href="#rose" transform="translate(80,10)">
+            <animateTransform
+                attributeName="transform"
+                type="translate"
+                from="-40 -20"
+                to="110 160"
+                dur="7s"
+                repeatCount="indefinite"
+            />
+            <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0"
+                to="360"
+                dur="4.5s"
+                repeatCount="indefinite"
+                additive="sum"
+            />
+        </use>
+    </g>
+    
+    <style>
+        #petal, #rose {
+            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.3));
+        }
+    </style>
+</svg>
