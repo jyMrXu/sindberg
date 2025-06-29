@@ -197,13 +197,14 @@ body {
     grid-template-columns: 125px 1fr;
     grid-template-areas:
         "header header"
-        "timeline bubble"
+        "bubble bubble"
         "timeline main"
         "conclusion conclusion";
     gap: 20px;
 }
 
 /* 标题部分样式 */
+
 header {
     grid-area: header;
     display: block;
@@ -213,9 +214,46 @@ header {
     margin-bottom: 20px;
 }
 
-.header-right {
-    text-align: center;
+/* 带图片的标题样式 */
+.header-with-image {
+    background-image: url('黄玫瑰图片.png');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
 }
+
+.header-content {
+    text-align: left;
+    padding-left: 50px;
+    width: 100%;
+}
+
+.header-with-image h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+    display: block;
+    width: auto;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-with-image .subtitle {
+    font-size: 1.2rem;
+    color: white;
+    display: block;
+    width: auto;
+    margin: 0;
+    text-align: left;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+/* 标题部分样式 */
+
+
 
 h1 {
     font-size: 2.5rem;
@@ -236,6 +274,10 @@ h1 {
 }
 
 /* 气泡部分样式 */
+.bubbles .square-bubble {
+    color: #8B4513; /* 经典的褐色值 */
+    /* 或使用颜色名：color: saddlebrown; */
+}
 .bubble-container {
     grid-area: bubble;
     padding: 20px;
@@ -252,32 +294,68 @@ h1 {
 }
 
 .bubbles {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  
     gap: 15px;
 }
 
 .bubble {
-    background-color: #f0e6cc;
-    border: 1px solid #d4b95e;
-    border-radius: 50%;
+    background-color: #ffde59;
+     aspect-ratio: 1/1; /* 宽高比1:1 */
+    height: auto;   
     padding: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+  
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 1.1rem; 
     text-align: center;
+    box-sizing: border-box;
+}
+
+.square-bubble {
+    border-radius: 8px;
+}
+.special-square-bubble{
+    background-color: white !important;
+    border: 15px solid;
+    border-color:#90624c;
+    border-radius: 8px;
+}
+
+.photo-bubble {
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+}
+
+#photo-bubble-1 {
+    background-image: url('气泡1.png');
+}
+
+#photo-bubble-2 {
+    background-image: url('气泡2.png');
+}
+
+#photo-bubble-3 {
+    background-image: url('气泡3.png');
 }
 
 .bubble:hover {
-    background-color: #d4b95e;
+    background-color: #fff2bd;
     transform: scale(1.05);
 }
 
+.photo-bubble:hover {
+    transform: scale(1.05);
+    border: 2px solid #ffde59;
+}
 /* 主要内容部分样式 */
 main {
     grid-area: main;
@@ -669,4 +747,43 @@ ul li::before {
     .hero-content, .human-content {
         grid-template-columns: 1fr;
     }
+}
+.conclusion-with-image {
+    background-image: url('结语图片.png');
+    background-size: cover;
+    background-position: center;
+    padding: 50px 30px;
+    position: relative;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.conclusion-with-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+.conclusion-with-image .conclusion-content {
+    position: relative;
+    z-index: 1;
+}
+
+.conclusion-with-image .conclusion-content p {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.conclusion-with-image .conclusion-content blockquote {
+    color: white;
+    border-left: 3px solid #ffffff;
+}
+
+.conclusion-with-image .conclusion-content blockquote p {
+    color: white;
 }

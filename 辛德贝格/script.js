@@ -74,80 +74,197 @@ document.addEventListener('DOMContentLoaded', function() {
         createExtraPetals(3);
     }, 15000);
     
-    // 气泡点击交互功能
-    const bubbles = document.querySelectorAll('.bubble');
+     // =============== 照片气泡点击事件 ===============
+const photoBubbles = document.querySelectorAll('.photo-bubble');
+
+photoBubbles.forEach(bubble => {
+    // 添加悬停提示文本
+    const hint = document.createElement('div');
+    hint.textContent = '点击看更多辛德贝格历史照片';
+    hint.classList.add('photo-hint');
     
-    bubbles.forEach(bubble => {
-        bubble.addEventListener('click', function() {
-            // 获取气泡的详细信息
-            const info = this.getAttribute('data-info');
-            
-            // 检查是否已经有信息框
-            let infoBox = document.querySelector('.info-box');
-            
-            // 如果已经有信息框，则移除它
-            if (infoBox) {
+    // 设置悬停提示样式
+    hint.style.position = 'absolute';
+    hint.style.bottom = '0';
+    hint.style.left = '0';
+    hint.style.right = '0';
+    hint.style.background = 'rgba(139, 69, 19, 0.9)';
+    hint.style.color = 'white';
+    hint.style.padding = '8px';
+    hint.style.textAlign = 'center';
+    hint.style.fontSize = '12px';
+    hint.style.borderBottomLeftRadius = '8px';
+    hint.style.borderBottomRightRadius = '8px';
+    hint.style.opacity = '0';
+    hint.style.transition = 'opacity 0.3s ease';
+    
+    // 添加到气泡中
+    bubble.appendChild(hint);
+    
+    // 悬停效果 - 显示提示
+    bubble.addEventListener('mouseenter', function() {
+        hint.style.opacity = '1';
+    });
+    
+    // 鼠标离开 - 隐藏提示
+    bubble.addEventListener('mouseleave', function() {
+        hint.style.opacity = '0';
+    });
+    
+    // 点击事件 - 打开链接
+     bubble.addEventListener('click', function() {
+        window.open('http://43.142.81.158:8080', '_blank');
+    });
+});
+
+// =============== 气泡点击交互功能 ===============
+const bubbles = document.querySelectorAll('.square-bubble, .special-square-bubble');
+
+bubbles.forEach(bubble => {
+    bubble.addEventListener('click', function() {
+        // 获取气泡的详细信息
+        const info = this.getAttribute('data-info');
+        
+        // 检查是否已经有信息框
+        let infoBox = document.querySelector('.info-box');
+        
+        // 如果已经有信息框，则移除它
+        if (infoBox) {
+            infoBox.remove();
+        }
+        
+        // 创建新的信息框
+        infoBox = document.createElement('div');
+        infoBox.className = 'info-box';
+        infoBox.innerHTML = `
+            <div class="info-content">${info}</div>
+            <button class="close-btn">关闭</button>
+        `;
+    
+        // 设置信息框样式
+        infoBox.style.position = 'absolute';
+        infoBox.style.backgroundColor = '#fff';
+        infoBox.style.border = '2px solid #d4b95e';
+        infoBox.style.borderRadius = '5px';
+        infoBox.style.padding = '15px';
+        infoBox.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+        infoBox.style.zIndex = '1000';
+        infoBox.style.maxWidth = '300px';
+        
+        // 获取气泡的位置
+        const rect = this.getBoundingClientRect();
+        
+        // 将信息框添加到文档中
+        document.body.appendChild(infoBox);
+        
+        // 计算信息框的位置
+        const infoBoxRect = infoBox.getBoundingClientRect();
+        
+        // 设置信息框的位置（在气泡上方）
+        infoBox.style.left = rect.left + (rect.width / 2) - (infoBoxRect.width / 2) + 'px';
+        infoBox.style.top = rect.top - infoBoxRect.height - 10 + window.scrollY + 'px';
+        
+        // 如果信息框超出了视口顶部，则将其放在气泡下方
+        if (parseFloat(infoBox.style.top) < window.scrollY) {
+            infoBox.style.top = rect.bottom + 10 + window.scrollY + 'px';
+        }
+        
+        // 添加关闭按钮的点击事件
+        const closeBtn = infoBox.querySelector('.close-btn');
+        closeBtn.style.backgroundColor = '#d4b95e';
+        closeBtn.style.border = 'none';
+        closeBtn.style.padding = '5px 10px';
+        closeBtn.style.marginTop = '10px';
+        closeBtn.style.cursor = 'pointer';
+        closeBtn.style.borderRadius = '3px';
+        
+        closeBtn.addEventListener('click', function() {
+            infoBox.remove();
+        });
+        
+        // 点击文档其他地方关闭信息框
+        document.addEventListener('click', function closeInfoBox(e) {
+            if (!infoBox.contains(e.target) && e.target !== bubble) {
                 infoBox.remove();
+                document.removeEventListener('click', closeInfoBox);
             }
-            
-            // 创建新的信息框
-            infoBox = document.createElement('div');
-            infoBox.className = 'info-box';
-            infoBox.innerHTML = `
-                <div class="info-content">${info}</div>
-                <button class="close-btn">关闭</button>
-            `;
-            
-            // 设置信息框样式
-            infoBox.style.position = 'absolute';
-            infoBox.style.backgroundColor = '#fff';
-            infoBox.style.border = '2px solid #d4b95e';
-            infoBox.style.borderRadius = '5px';
-            infoBox.style.padding = '15px';
-            infoBox.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-            infoBox.style.zIndex = '1000';
-            infoBox.style.maxWidth = '300px';
-            
-            // 获取气泡的位置
-            const rect = this.getBoundingClientRect();
-            
-            // 将信息框添加到文档中
-            document.body.appendChild(infoBox);
-            
-            // 计算信息框的位置
-            const infoBoxRect = infoBox.getBoundingClientRect();
-            
-            // 设置信息框的位置（在气泡上方）
-            infoBox.style.left = rect.left + (rect.width / 2) - (infoBoxRect.width / 2) + 'px';
-            infoBox.style.top = rect.top - infoBoxRect.height - 10 + window.scrollY + 'px';
-            
-            // 如果信息框超出了视口顶部，则将其放在气泡下方
-            if (parseFloat(infoBox.style.top) < window.scrollY) {
-                infoBox.style.top = rect.bottom + 10 + window.scrollY + 'px';
-            }
-            
-            // 添加关闭按钮的点击事件
-            const closeBtn = infoBox.querySelector('.close-btn');
-            closeBtn.style.backgroundColor = '#d4b95e';
-            closeBtn.style.border = 'none';
-            closeBtn.style.padding = '5px 10px';
-            closeBtn.style.marginTop = '10px';
-            closeBtn.style.cursor = 'pointer';
-            closeBtn.style.borderRadius = '3px';
-            
-            closeBtn.addEventListener('click', function() {
-                infoBox.remove();
-            });
-            
-            // 点击文档其他地方关闭信息框
-            document.addEventListener('click', function closeInfoBox(e) {
-                if (!infoBox.contains(e.target) && e.target !== bubble) {
-                    infoBox.remove();
-                    document.removeEventListener('click', closeInfoBox);
-                }
-            });
         });
     });
+});
+    // // 气泡点击交互功能
+    // const bubbles = document.querySelectorAll('.bubble');
+    
+    // bubbles.forEach(bubble => {
+    //     bubble.addEventListener('click', function() {
+    //         // 获取气泡的详细信息
+    //         const info = this.getAttribute('data-info');
+            
+    //         // 检查是否已经有信息框
+    //         let infoBox = document.querySelector('.info-box');
+            
+    //         // 如果已经有信息框，则移除它
+    //         if (infoBox) {
+    //             infoBox.remove();
+    //         }
+            
+    //         // 创建新的信息框
+    //         infoBox = document.createElement('div');
+    //         infoBox.className = 'info-box';
+    //         infoBox.innerHTML = `
+    //             <div class="info-content">${info}</div>
+    //             <button class="close-btn">关闭</button>
+    //         `;
+            
+    //         // 设置信息框样式
+    //         infoBox.style.position = 'absolute';
+    //         infoBox.style.backgroundColor = '#fff';
+    //         infoBox.style.border = '2px solid #d4b95e';
+    //         infoBox.style.borderRadius = '5px';
+    //         infoBox.style.padding = '15px';
+    //         infoBox.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+    //         infoBox.style.zIndex = '1000';
+    //         infoBox.style.maxWidth = '300px';
+            
+    //         // 获取气泡的位置
+    //         const rect = this.getBoundingClientRect();
+            
+    //         // 将信息框添加到文档中
+    //         document.body.appendChild(infoBox);
+            
+    //         // 计算信息框的位置
+    //         const infoBoxRect = infoBox.getBoundingClientRect();
+            
+    //         // 设置信息框的位置（在气泡上方）
+    //         infoBox.style.left = rect.left + (rect.width / 2) - (infoBoxRect.width / 2) + 'px';
+    //         infoBox.style.top = rect.top - infoBoxRect.height - 10 + window.scrollY + 'px';
+            
+    //         // 如果信息框超出了视口顶部，则将其放在气泡下方
+    //         if (parseFloat(infoBox.style.top) < window.scrollY) {
+    //             infoBox.style.top = rect.bottom + 10 + window.scrollY + 'px';
+    //         }
+            
+    //         // 添加关闭按钮的点击事件
+    //         const closeBtn = infoBox.querySelector('.close-btn');
+    //         closeBtn.style.backgroundColor = '#d4b95e';
+    //         closeBtn.style.border = 'none';
+    //         closeBtn.style.padding = '5px 10px';
+    //         closeBtn.style.marginTop = '10px';
+    //         closeBtn.style.cursor = 'pointer';
+    //         closeBtn.style.borderRadius = '3px';
+            
+    //         closeBtn.addEventListener('click', function() {
+    //             infoBox.remove();
+    //         });
+            
+    //         // 点击文档其他地方关闭信息框
+    //         document.addEventListener('click', function closeInfoBox(e) {
+    //             if (!infoBox.contains(e.target) && e.target !== bubble) {
+    //                 infoBox.remove();
+    //                 document.removeEventListener('click', closeInfoBox);
+    //             }
+    //         });
+    //     });
+    // });
     
     // 添加页面滚动动画效果
     const sections = document.querySelectorAll('section');
