@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Everlasting Yellow Rose - Bernhard Arp Sindberg</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="wordcloud.css">
+    <link rel="stylesheet" href="relationship-graph.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <!-- Petal animation container -->
+    <div class="petals-container">
+        <img src="花瓣-00.png" class="petal petal-1" alt="Petal">
+        <img src="花瓣01.png" class="petal petal-2" alt="Petal">
+        <img src="花瓣02.png" class="petal petal-3" alt="Petal">
+    </div>
+
+    <div class="container">
+        <!-- Title section -->
+        <header>
+            <div class="header-with-image">
+                <div class="header-content">
+                <h1>The Everlasting Yellow Rose</h1>
+                <div class="subtitle">1937 Bernhard Arp Sindberg's 106 Days in Nanjing</div>
+            </div>
+        </header>
+                <!-- Interactive bubble section -->
+        <div class="bubble-container">
+            <div class="bubble-intro">
+                <p>What do you know about Bernhard Arp Sindberg?</p>
+            </div>
+            <div class="bubbles">
+                <div class="bubble square-bubble" data-info="Dane, born in Copenhagen, Denmark in 1911">Dane</div>
+                <div class="bubble photo-bubble" id="photo-bubble-1"></div>
+                <div class="bubble square-bubble" data-info="Known as Nanjing's 'Danish Hero' for protecting Chinese people during the Nanjing Massacre">Nanjing's "Danish Hero"</div>
+                <div class="bubble special-square-bubble" data-info="Nanjing has a statue of Sindberg commemorating his humanitarian spirit. Queen Margrethe II of Denmark unveiled the statue.">Statue</div>
+                 <div class="bubble photo-bubble" id="photo-bubble-3"></div>
+                <div class="bubble" data-info="Documentary 'Sindberg: 106 Days in Nanjing' recreates experiences during the Nanjing Massacre">Sindberg Documentary</div>
+               <div class="bubble photo-bubble" id="photo-bubble-2"></div>
+                <div class="bubble square-bubble" data-info="Xi Jinping commented on Sindberg and other international figures: &ldquo;The Chinese people will never forget their humanitarian spirit and fearless acts of justice.&rdquo;">Xi Jinping's Tribute</div>
+                <div class="bubble-intro">
+                <p>Click photos to view historical images</p>
+            </div>
+            </div>
+        </div>
+
+        <!-- Main content section -->
+        <main>
+            <section class="biography">
+                <h2>(I) Biography of Bernhard Arp Sindberg</h2>
+                <div class="bio-content">
+                    <p>Bernhard Arp Sindberg, Danish, born in 1911, never married. Sindberg was a witness to the Nanjing Massacre by the invading Japanese army and one of the international friends who protected Chinese refugees in Nanjing.</p>
+                    <p>In 1937, Sindberg came to China representing Denmark to assist in protecting the Jiangnan Cement Plant. During the Nanjing Massacre, Sindberg and German doctor Karl Günther established a refugee camp at the Jiangnan Cement Plant, protecting and rescuing over 20,000 refugees. On February 3, 1938, Sindberg submitted his records of Japanese atrocities to the Nanjing Safety Zone Committee. He also investigated and filmed Japanese military atrocities around the cement plant and Qixia Temple with Reverend John Magee, chairman of the International Red Cross Committee in Nanjing. Sindberg left Nanjing in March 1938. After returning to Europe, he screened documentaries filmed in China in Geneva and elsewhere, exposing Japanese military atrocities in Nanjing to the world.</p>
+                    
+                    <div class="graph-title">Sindberg's Personal Relationship Network</div>
+                    <div class="relationship-graph-container">
+                        <div id="relationship-graph"></div>
+                        <div class="graph-legend">
+                            <div class="legend-item">
+                                <div class="legend-color sindberg"></div>
+                                <span>Sindberg</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color other"></div>
+                                <span>Other Individuals</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="bio-content">
+					<p>In Nanjing, Sindberg first interacted with Chinese personnel guarding the Jiangnan Cement Plant, then took in surrounding Chinese refugees, encountering Japanese soldiers who turned Chinese into refugees and international friends protecting Chinese refugees. Through these interactions, Sindberg not only showed his heroic side but also revealed his human characteristics as a "flesh-and-blood" individual.</p>
+					  </div>
+            </section>
+
+            <section class="hero">
+                <h2>(II) Sindberg as a "Hero"</h2>
+                <div class="hero-content">
+                    <div class="hero-item">
+                        <h3>1. Jiangnan Cement Plant</h3>
+						  <div class="medical-aid-content">
+                            <div class="wordcloud-container" id="wordcloud-toggle-medical">
+                                <img src="词云图2-2.png" alt="Word Cloud - Without Text" class="wordcloud-image visible" id="wordcloud-image-medical-1">
+                                <img src="词云图2-3.png" alt="Word Cloud - With Text" class="wordcloud-image hidden" id="wordcloud-image-medical-2">
+                                <div class="wordcloud-caption">Click to switch</div>
+								</div>
+                            <p>On December 5, 1937, Sindberg's group arrived at the Jiangnan Cement Plant near Nanjing under Smith & Co.'s commission to protect the factory and its machinery. By then, Japanese troops had surrounded Nanjing, and villages near the city experienced Japanese killing and burning.</p>
+                            <p>Within days of their arrival, battles erupted less than 10km from the plant. Japan's 16th Division advanced toward Qixia Mountain, massacring civilians en route. On December 9, Qixia Mountain fell. Facing homeless refugees, from December 11, the cement plant began taking them in, forming north and south refugee zones. By mid-February 1938, it sheltered up to 20,000 refugees.</p>
+                            <blockquote>
+                                <p>"Because of your goodwill, ten thousand lives are saved under your protection"</p>
+                                <footer>—Letter from refugee representatives to Günther, Sindberg, and Magee</footer>
+                            </blockquote>
+                            
+                            <p>Survivor testimonies show: while Qixia Temple's refugee camp initially offered "porridge," Jiangnan plant refugees "managed their own food," retrieving grain at night. Eventually, a marketplace emerged—selling fried dough, rice balls, and bean residue—where "impoverished refugees even exchanged stamps for goods."</p>
+                            <div class="chart-container">
+                                 <h4>Comparison of Refugee Numbers at Jiangnan Cement Plant vs. Qixia Temple (Dec.1937-May.1938)</h4>
+                                 <div id="refugee-chart" class="line-chart"></div>
+                             </div>
+                            <p>The refugee numbers showed an inverse relationship—as other camps closed, Jiangnan's population grew. Key reasons:</p>
+                            <ol>
+                                <li>Japan announced forced dissolution of all refugee camps by Feb.4 (later postponed to Feb.8).</li>
+                                <li>Japanese soldiers frequently harassed Qixia Temple, while foreigners at Jiangnan deterred violations, making it "safer."</li>
+                                <li>Qixia Temple faced food shortages due to overcrowding.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="hero-item">
+                        <h3>2. Danish Flag</h3>
+                        <div class="danish-flag-content">
+                            <blockquote>
+                                <p>"Outside the factory, 3,000-4,000 refugees are sheltered under our flag."</p>
+                                <footer>—Sindberg, January 11, 1938</footer>
+                            </blockquote>
+                            <p>Upon arrival, Sindberg hoisted German and Danish flags at the gates to protect the plant. To prevent air raids, he painted a 1,350 m² Danish flag on the roof—visible from the air. "It must be the largest Danish flag ever made," Sindberg wrote on February 3, 1938.</p>
+                            <p>The flags became shields protecting refugees from Japanese soldiers—symbols of safety. Amidst turmoil, the flags fluttering above the plant guarded refugee huts nearby, radiating humanitarian spirit.</p>
+                            <blockquote>
+                            <p><ol>
+                                <li>"They asked tailor Wang to make German and Danish flags overnight... placing protective signs with crossed flags at key locations."</li>
+                                <li>"Village girls went to Jiangnan's refugee zone—safe. The Dane was kind—hung flags, Japanese didn't come."</li>
+                                <li>"At Jiangnan Plant... Japanese came, foreigners spoke, Japanese left. When soldiers harassed women, the Dane came out with a flag, spoke, Japanese left."</li>
+                            </ol></p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="hero-item">
+                        <h3>3. Letters & Documents</h3>
+                        <div class="letters-container">
+                            <div class="letter-grid">
+                                <div class="letter-item">
+                                    <div class="letter-header">Event: Petition from Qixia Refugees to Japanese Authorities</div>
+                                    <div class="letter-content">
+                                        <p>On December 23, 1937, Sindberg drove to Rabe in a Ford car, delivering two petitions from Qixia refugees.</p>
+                                        <p class="quote-text">17,000 refugees "implore mercy and protection from Japanese soldiers' atrocities."</p>
+                                        <p>Rabe, as chairman of the Safety Zone Committee, wrote to First Secretary Tanaka:</p>
+                                        <p class="quote-text">"I enclose two petitions from Qixia illustrating difficulties matching Nanjing's. May you act upon this."</p>
+                                    </div>
+                                </div>
+                                <div class="letter-item">
+                                    <div class="letter-header">Event: "To All Concerned in the Name of Humanity"</div>
+                                    <div class="letter-content">
+                                        <p>On January 25, 1938, Günther and Sindberg received a letter signed by 20 Qixia notables titled "To All Concerned in the Name of Humanity." On February 3, Sindberg delivered its German translation to Rabe. Refugees wrote:</p>
+                                        <p class="quote-text">"We report this area's situation and temple harassment. Since Nanjing fell, hundreds seek shelter here daily. Currently, 20,400 people gather here—mostly women and children—as men were enslaved."</p>
+                                        <p>After detailing 11 days of atrocities:</p>
+                                        <p class="quote-text">"We appeal to anyone who can stop these inhuman cruelties. Eighty percent here lost everything—homes destroyed, livestock killed, possessions looted."</p>
+                                    </div>
+                                </div>
+                                <div class="letter-item">
+                                    <div class="letter-header">Event: Report on Qixia Visit</div>
+                                    <div class="letter-content">
+                                        <p>On August 16, 1946, Magee testified at the Tokyo Trials:</p>
+                                        <p class="quote-text">"Around January-February 1938, I visited Qixia village—15 miles from Nanjing. A cement plant run by a German and Dane flew German flags, sheltering ~10,000 refugees. That evening, I spoke with elders from ≥10 villages. Everywhere mirrored Nanjing: men dared not leave camp fearing execution if failing to provide women..."</p>
+                                    </div>
+                                </div>
+                                <div class="letter-item">
+                                    <div class="letter-header">Event: Sindberg's Letter</div>
+                                    <div class="letter-content">
+                                        <p>Beyond "Sindberg Records" and "Sindberg Photo Album," a February 5, 1938 letter mailed to Denmark—published March 6 by Aarhus Church Times—was subtitled "Famine Threatens Millions of Chinese." Sindberg described:</p>
+                                        <p class="quote-text">"You cannot imagine rivers of blood everywhere. Since August, I daily witness war's horrors. Blood, blood, everywhere blood."</p>
+                                        <p class="quote-text">"Only ruins line the roads—villages burned, livestock stolen. Corpses of farmers/soldiers litter fields, devoured by starving dogs/beasts."</p>
+                                        <p class="quote-text">"The plant shelters 6,000 Chinese farmers—women/children who lost everything. They crowd under roofs or straw huts. Our flag shields them, but food shortage persists—only God knows their suffering."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-item">
+                        <h3>4. Medical Assistance</h3>
+						 <div class="cement-factory-content">
+                            <div class="wordcloud-container" id="wordcloud-toggle">
+                                <img src="词云图1-2.png" alt="Word Cloud - Without Text" class="wordcloud-image visible" id="wordcloud-image-1">
+                                <img src="词云图1-3.png" alt="Word Cloud - With Text" class="wordcloud-image hidden" id="wordcloud-image-2">
+                                <div class="wordcloud-caption">Click to switch</div>
+                            </div>                    
+                            <p>On December 20, 1937, hearing Nanjing had stabilized on radio, Sindberg tried delivering wounded Chinese there—as he'd done before: months earlier at Shanghai frontlines, he and Stephens "always brought back wounded soldiers when returning."</p>
+                            <p>Japanese soldiers blocked them midway; Sindberg retreated with the wounded, walked 20km, and hitched a Japanese truck to enter Nanjing. Later, on January 14, 1938, a five-year-old boy arrived at Jiangnan—injured when Japanese soldiers threw grenades at chickens during village raids. Severe wounds and infection cost his eye. Sindberg rushed him by motorcycle to Zhongshan Gate but was denied entry; guards refused hospital transfer. Undeterred, he circled to Taiping Gate, raced through checkpoint, and reached American University Hospital where Dr. Robert Wilson treated the child.</p>
+                            <p>Facing repeated obstacles and rising casualties from Japanese violence, Sindberg, Günther, and Yan Jinghe established a clinic at Jiangnan.</p>
+                            <p>Initially lacking staff/medicine, Sindberg traveled to Nanjing, securing two nurses from Gulou Hospital and Red Cross support. Later, Günther collaborated with traditional doctors since "farmers trust Chinese medicine." The clinic saved countless lives—seriously wounded refugees found timely treatment there.</p>
+                        </div>
+                    </div>
+                    <div class="hero-item">
+                        <h3>5. Exposing Japanese Atrocities</h3>
+                        <div class="photo-evidence-content">
+                            <p>Japan closely monitored Western awareness of Nanjing truths, restricting foreign entry and blocking atrocity evidence. Yet such measures couldn't silence justice.</p>
+                            <p>Sindberg learned photography/documentation from Stephens. After December 1937—especially contacting Safety Zone/Red Cross committees—he maintained this habit.</p>
+                            <p>In Nanjing, risking his life, he photographed Japanese crimes, leaving crucial "Sindberg Photo Album" evidence.</p>
+                            <p>Scholars divide the album: 1937 Shanghai frontlines; John Magee's film stills; and Jiangnan refugee zone/outskirts scenes during the massacre.</p>
+                            <p>The third section shocks: ponds filled with executed farmers/disarmed soldiers; hands still tied behind victims' backs; mouths agape in final screams; exposed ribcages; corpses scavenged by animals...</p>
+                            <p>These photos confirmed historical records/refugee testimonies, becoming ironclad evidence.</p>
+                            <p>Sindberg collaborated with other witnesses. On February 16-17, 1938, accompanying Magee to Jiangnan, he drove Magee around outskirts. Magee filmed clinic/refugee camps and wrote narrations/visit reports.</p>
+                            <p>Three days after Sindberg left Nanjing, Japanese military/intelligence learned of his photos, forcing his departure from China.</p>
+                            <blockquote>
+                                <p>"Now I understand my son's sudden exit from East. Japanese gave hours' warning. He couldn't withdraw bank money on Sunday."</p>
+                                <footer>—Sindberg's father, Odsherred Ugeavis Weekly, July 1938</footer>
+                            </blockquote>
+                            <p>On April 25, 1938, Sindberg sailed from Shanghai. Reuniting with his father in Geneva during the 24th International Labour Conference, Chinese delegates invited him to screen a documentary about Sino-Japanese war to League of Nations members.</p>
+                            <p>On June 3, 1938, ≈100 League delegates/journalists gathered at China International Library. Before screening, Sindberg spoke, "spending hours explaining." Truth proved brutal—"many wept with anxiety during screening."</p>
+                            <p>As neutral citizen and eyewitness, Sindberg exposed Nanjing Massacre to the world. This historic event enriched research materials, disproving Japanese claims of "fabricated lies."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="human">
+                <h2>(III) Sindberg as "A Flesh-and-Blood Person"</h2>
+                <p class="section-intro">(Attitudes toward work, friendships, daily conduct: valued friendship, witty, impulsive)</p>
+                <div class="human-content">
+                    <div class="human-item">
+                        <h3>1. Friendship</h3>
+                        <div class="friendship-content">
+                            <p>On December 20, 1937, blocked from delivering wounded, Sindberg entered Nanjing—first post-battle entry—visiting Safety Zone headquarters. He met committee chairman John Rabe, secretary Lewis Smythe, Christian Kröger, and food commissioner Han Xianglin. On December 22, he met Magee, Wilson and others. Thus, refugee organizations linked city and outskirts—proving vital for information exchange and refugee protection.</p>
+                            <h4>(1) Foreign Friends</h4>
+                            <blockquote>
+                                <p>"Christmas preparations—joyful anticipation replaced by fear/sorrow, uncertainty."</p>
+                                <footer>—Minnie Vautrin</footer>
+                            </blockquote>
+                            <p>December 25, 1937—sunny Christmas Day for Westerners. But Nanjing remained slaughterhouse hell. Before holiday, Japanese soldiers established brothels by "registering refugees," then executing civilians/disarmed soldiers. On December 24, soldiers looted shops/US Embassy before burning them—"fires lit southern/eastern skies."</p>
+                            <p>Commerce halted citywide. Safety Zone/Red Cross members faced food shortages: "No meat for days; markets empty—no eggs/chicken."</p>
+                            <p>Knowing city hardships, Sindberg remembered friends. On December 23, delivering petitions, he also brought "two pigs, three sweet potato bags"—snowfall provision enabling "Christmas dinner donated by Danish Sindberg."</p>
+                            <p>Later, during city visits, he brought eggs/ducks/piglets/vegetables—"each time greeted with cheers."</p>
+                            <h4>(2) Stephens</h4>
+                            <p>Mid-September 1937, while driving trucks between Shanghai-Nanjing for Chinese military, Sindberg got new work—driver for war correspondent Pembroke Stephens. Hired, they rode a Chrysler convertible with giant British flag painted on hood, rushing to battlefronts day/night. This exposed Sindberg to war's cruelty, filling him with admiration for brave Chinese soldiers:</p>
+                            <blockquote>
+                                <p>"Admirable Chinese soldiers—marching forward singing cheerfully, carrying burdens on bamboo poles. Reinforcements saw wounded comrades but pressed ahead—pitiful scenes inspired them."</p>
+                                <p>"Many nights visiting trenches/rural huts, we found them playing mahjong..."</p>
+                                <footer>—Sindberg Records</footer>
+                            </blockquote>
+                            <p>Sindberg enjoyed Stephens' company; Stephens nicknamed him "Sindbad"—perhaps meaning witty. Stephens taught him photography/documentation. Days spent interviewing in combat zones, visiting soldiers, sometimes delivering wounded to Shanghai hospitals. To family, Sindberg wrote: "Dangerous job, but I prefer nothing else. We work/eat/sleep amid bomb thunder/gunfire."</p>
+                            <p>On November 11, 1937, Stephens died by Japanese gunfire; concrete-ricochet bullets grazed Sindberg's leg. On November 14, he joined many laying flowers at Stephens' Shanghai funeral.</p>
+                        </div>
+                    </div>
+                    <div class="human-item">
+                        <h3>2. Work</h3>
+                        <div class="work-content">
+                            <p>Plant protection involved managing refugees, deterring bandits, handling Japanese harassment, coping with shortages, and family separation—a formidable task.</p>
+                            <p>After Qixia fell, Japanese soldiers harassed the plant daily—dozens of times. On January 10, 1938 (lunar 12/9), unwelcome guests arrived: Japanese officers escorting Tokyo Chamber of Commerce vice-chairman's secretary "Shetou" to "inspect" the plant. Snow bore dark footprints, alarming Sindberg: "Japanese thoroughly inspected, photographed factory... whispered mysteriously."</p>
+                            <p>Undoubtedly, Japan wanted to seize Asia's largest cement plant (worth 8 million DKK). Next day, Sindberg asked Jensen: "How proceed? Awaiting instructions." Following corporate orders—"forbid equipment use," "I'm no engineer," "remain polite to Japanese"—he stalled them for days. But on February 5, Sanbongi Corporation attempted "takeover." Late February meetings yielded no "agreement." Representatives left disgruntled.</p>
+                            <p>Despite wartime damage, Jiangnan equipment remained largely intact until 1944 dismantlement—thanks to defenders' efforts.</p>
+                        </div>
+                    </div>
+                    <div class="human-item">
+                        <h3>3. Tactics Against Japanese—Witty, Unconventional</h3>
+                        <div class="japan-strategy-content">
+                            <p>Sindberg developed unique Japanese countermeasures. Under strict lockdown, he could enter/leave Nanjing—discovering "Japanese escort enabled access."</p>
+                            <p>When monks requested a ride into town, he drove to train station, picked up a Japanese soldier—four entered smoothly.</p>
+                            <p>Delivering food to expats, guards stopped him; Sindberg smartly gave them eggs—then officers/soldiers escorted him through checkpoint.</p>
+                            <p>Sindberg demonstrated exceptional adaptability against Japanese blockade—using astute judgment and wit to navigate tight security.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Timeline sidebar -->
+        <aside class="timeline">
+            <h3>Timeline</h3>
+            <div class="timeline-line">
+                <div class="timeline-point" data-year="1911.2.19">
+                    <div class="point-circle">1911<br>Feb.19<br><small>Birth</small></div>
+                    <div class="point-content">Born in Aarhus, junior high education</div>
+                </div>
+                <div class="timeline-point" data-year="1937.8">
+                    <div class="point-circle">1937<br>Aug<br><small>Arrived China</small></div>
+                    <div class="point-content">Sailed from California to Yokohama→Shanghai</div>
+                </div>
+                <div class="timeline-point" data-year="1937.8.13">
+                    <div class="point-circle important">1937<br>Aug.13<br><small>August 13 Incident</small></div>
+                    <div class="point-content">Shanghai "August 13" Incident</div>
+                </div>
+                <div class="timeline-point" data-year="1937.8">
+                    <div class="point-circle">1937<br>Aug<br><small>Witnessed Atrocities</small></div>
+                    <div class="point-content">Witnessed Japanese soldiers kill 9 Chinese civilians; joined rescue work</div>
+                </div>
+                <div class="timeline-point" data-year="1937.9">
+                    <div class="point-circle">1937<br>Sep<br><small>War Correspondent</small></div>
+                    <div class="point-content">Hired as driver/guide/photographer for war correspondent Pembroke Stephens</div>
+                </div>
+                <div class="timeline-point" data-year="1937.12.2">
+                    <div class="point-circle">1937<br>Dec.2<br><small>To Nanjing</small></div>
+                    <div class="point-content">Traveled to Nanjing with Günther to manage Smith & Co. cement plant</div>
+                </div>
+                <div class="timeline-point" data-year="1937.12.5">
+                    <div class="point-circle">1937<br>Dec.5<br><small>Raised Flags</small></div>
+                    <div class="point-content">Arrived Jiangnan Cement Plant, hoisted German/Danish flags/markers</div>
+                </div>
+                <div class="timeline-point" data-year="1937.12.13">
+                    <div class="point-circle important">1937<br>Dec.13<br><small>Nanjing Fell</small></div>
+                    <div class="point-content">Nanjing fell. Mass Japanese killing/raping/looting began</div>
+                </div>
+                <div class="timeline-point" data-year="1937.12.14">
+                    <div class="point-circle important">1937<br>Dec.14<br><small>Refugee Medical Aid</small></div>
+                    <div class="point-content">Injured refugees started seeking treatment</div>
+                </div>
+                <div class="timeline-point" data-year="1937.12.20">
+                    <div class="point-circle">1937<br>Dec.20<br><small>Transported Wounded</small></div>
+                    <div class="point-content">Japanese soldiers blocked Sindberg delivering wounded; reached Rabe</div>
+                </div>
+                <div class="timeline-point" data-year="1937.12.24">
+                    <div class="point-circle">1937<br>Dec.24<br><small>Established Clinic</small></div>
+                    <div class="point-content">Sindberg reported atrocities to Wilson; clinic established at Jiangnan</div>
+                </div>
+                <div class="timeline-point" data-year="1937.12.25">
+                    <div class="point-circle">1937<br>Dec.25<br><small>Christmas Donation</small></div>
+                    <div class="point-content">Sindberg donated Christmas dinner; discussed refugee crisis</div>
+                </div>
+                <div class="timeline-point" data-year="1938.1.10">
+                    <div class="point-circle important">1938<br>Jan.10<br><small>Japanese Visit</small></div>
+                    <div class="point-content">Tokyo Chamber delegation "inspected" cement plant</div>
+                </div>
+                <div class="timeline-point" data-year="1938.1.14">
+                    <div class="point-circle">1938<br>Jan.14<br><small>Rescued Child</small></div>
+                    <div class="point-content">Sindberg delivered grenade-injured child to Wilson by motorcycle</div>
+                </div>
+                <div class="timeline-point" data-year="1938.1.25">
+                    <div class="point-circle">1938<br>Jan.25<br><small>Humanitarian Appeal</small></div>
+                    <div class="point-content">Wrote "To All Concerned in the Name of Humanity"</div>
+                </div>
+                <div class="timeline-point" data-year="1938.1.26">
+                    <div class="point-circle">1938<br>Jan.26<br><small>Refugee Plea</small></div>
+                    <div class="point-content">Village representatives appealed for help</div>
+                </div>
+                <div class="timeline-point" data-year="1938.1.28">
+                    <div class="point-circle important">1938<br>Jan.28<br><small>Refugee Order</small></div>
+                    <div class="point-content">Japanese ordered refugees home by Feb.4</div>
+                </div>
+                <div class="timeline-point" data-year="1938.2.3">
+                    <div class="point-circle">1938<br>Feb.3<br><small>Delivered Supplies</small></div>
+                    <div class="point-content">Sindberg delivered supplies to Safety Zone, submitted refugee letters</div>
+                </div>
+                <div class="timeline-point" data-year="1938.2.5">
+                    <div class="point-circle">1938<br>Feb.5<br><small>Japanese Inspection</small></div>
+                    <div class="point-content">Japanese attempted "takeover" under inspection guise</div>
+                </div>
+                <div class="timeline-point" data-year="1938.2.11">
+                    <div class="point-circle important">1938<br>Feb.11<br><small>Refugee Influx</small></div>
+                    <div class="point-content">Qixia Temple refugees petitioned; influx to Jiangnan</div>
+                </div>
+                <div class="timeline-point" data-year="1938.2.16">
+                    <div class="point-circle">1938<br>Feb.16<br><small>Filmed Evidence</small></div>
+                    <div class="point-content">Magee visited cement plant, filmed clinic/refugee camp</div>
+                </div>
+                <div class="timeline-point" data-year="1938.2.23">
+                    <div class="point-circle important">1938<br>Feb.23<br><small>Rabe Left</small></div>
+                    <div class="point-content">Rabe left Nanjing→Shanghai→Germany</div>
+                </div>
+                <div class="timeline-point" data-year="1938.3.6">
+                    <div class="point-circle">1938<br>Mar.6<br><small>Disclosed Truth</small></div>
+                    <div class="point-content">Sindberg's letter exposing Nanjing published in Aarhus Church Times</div>
+                </div>
+                <div class="timeline-point" data-year="1938.3.13">
+                    <div class="point-circle important">1938<br>Mar.13<br><small>Refugee Return</small></div>
+                    <div class="point-content">20% Jiangnan refugees returned home; >20,000 remained</div>
+                </div>
+                <div class="timeline-point" data-year="1938.4.12">
+                    <div class="point-circle">1938<br>Apr.12<br><small>US Visa</small></div>
+                    <div class="point-content">Obtained US visa at Shanghai consulate</div>
+                </div>
+                <div class="timeline-point" data-year="1938.4.25">
+                    <div class="point-circle">1938<br>Apr.25<br><small>Left Shanghai</small></div>
+                    <div class="point-content">Departed Shanghai</div>
+                </div>
+                <div class="timeline-point" data-year="1938.5.7">
+                    <div class="point-circle">1938<br>May.7<br><small>Arrived HK</small></div>
+                    <div class="point-content">Reached Hong Kong→Hankou</div>
+                </div>
+                <div class="timeline-point" data-year="1938.5.16">
+                    <div class="point-circle">1938<br>May.16<br><small>Published Photos</small></div>
+                    <div class="point-content">Published 10 Magee film photos in US LIFE Magazine</div>
+                </div>
+                <div class="timeline-point" data-year="1938.6.2">
+                    <div class="point-circle">1938<br>Jun.2<br><small>Geneva Meeting</small></div>
+                    <div class="point-content">Sindberg/father met Chinese delegates at ILO conference</div>
+                </div>
+                <div class="timeline-point" data-year="1938.6.3">
+                    <div class="point-circle">1938<br>Jun.3<br><small>Screened Film</small></div>
+                    <div class="point-content">Screened documentary for League delegates/journalists</div>
+                </div>
+                <div class="timeline-point" data-year="1938.6.6">
+                    <div class="point-circle">1938<br>Jun.6<br><small>ILO Presentation</small></div>
+                    <div class="point-content">Screened film at Geneva International Labour Conference</div>
+                </div>
+                <div class="timeline-point" data-year="1938.7.4">
+                    <div class="point-circle">1938<br>Jul.4<br><small>To USA</small></div>
+                    <div class="point-content">Departed Aarhus for USA after media interviews</div>
+                </div>
+                <div class="timeline-point" data-year="1938.12.28">
+                    <div class="point-circle">1938<br>Dec.28<br><small>Received Banner</small></div>
+                    <div class="point-content">Danish Consul mailed "Righteous Bravery" silk banner from Qixia elders</div>
+                </div>
+                <div class="timeline-point" data-year="1983.4">
+                    <div class="point-circle">1983<br>Apr<br><small>Passed Away</small></div>
+                    <div class="point-content">Died of illness</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Conclusion section -->
+        
+        <section class="conclusion conclusion-with-image">
+            <h2></h2>
+            <div class="conclusion-content">
+                <p>Sindberg's story shows: no one is born a hero. An ordinary man, he hesitated facing atrocities. Yet ultimately chose courage—defending truth/justice through actions, achieving extraordinary deeds at his post. May the yellow rose blooming in adversity eternally unfold through history.</p>
+                <p>Special Thanks: Researcher Dai Yuanzhi</p>
+                <p>Sincere gratitude to all predecessors preserving Sindberg's historical records!</p>
+                <blockquote>
+                    <p>Perhaps he lives next door—only you never realize</p>
+                </blockquote>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="wordcloud.js"></script>
+    <script src="relationship-graph.js"></script>
+</body>
+</html>
